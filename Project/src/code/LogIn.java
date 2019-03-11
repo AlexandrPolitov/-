@@ -40,6 +40,7 @@ public class LogIn {
         if (false) {
             Stage stage = (Stage) btnCancel.getScene().getWindow();
             stage.close();
+
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Данные не верны");

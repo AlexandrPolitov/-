@@ -10,14 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.control.CheckBox?>
 
-<GridPane alignment="center" hgap="10"
-          prefHeight="150.0" prefWidth="250.0" vgap="10"
+<Pane prefHeight="150.0" prefWidth="250.0"
           xmlns="http://javafx.com/javafx/8.0.172-ea"
           xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="code.LogIn">
 
-<children>
-    <Pane prefHeight="150.0" prefWidth="250.0">
         <children>
 
             <Button  fx:id="btnLogIn" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#buttonLogInClick" text="Log in" textAlignment="CENTER">
@@ -43,8 +40,5 @@
             <TextField fx:id="textPass" layoutX="10" layoutY="40" promptText="Password">
 
             </TextField>
-
         </children>
-    </Pane>
-</children>
-</GridPane>
+</Pane>

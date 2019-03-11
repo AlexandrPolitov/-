@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private final String APP_NAME = "pITzza";
-    private final int RES_WIDTH = 900;
+    private final int RES_WIDTH = 1000;
     private final int RES_HEIGHT = 555;
 
     @Override

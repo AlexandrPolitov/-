@@ -2,40 +2,153 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" prefHeight="546.0" prefWidth="890.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.mainPage">
+<Pane cacheShape="false" centerShape="false" prefHeight="550.0" prefWidth="995.0" scaleShape="false" style="-fx-background-color: 255,255,255" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.mainPage">
    <children>
-      <Pane prefHeight="555.0" prefWidth="900.0">
-         <children>
+       <Label fx:id="User" layoutX="26.0" layoutY="296.0" prefHeight="49.0" prefWidth="156.0" text="Ветчина, томатный соус,&#10;шампиньоны и моцарелла." />
 
-            <Label fx:id="User" layoutX="50.0" layoutY="13.0" text="Unknown User" />
+       <Button contentDisplay="RIGHT" layoutX="858.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#buttonSignUpClick" style="-fx-background-radius: 10; -fx-background-color: 255, 140, 0;" text="Регистрация" textAlignment="CENTER" textFill="#ff8800">
+           <font>
+               <Font name="Arial Bold" size="14.0" />
+           </font>
+       </Button>
 
-            <Button layoutX="819.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#buttonSignUpClick" text="Sign up" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial Bold" size="12.0" />
-               </font></Button>
+       <Button contentDisplay="RIGHT" layoutX="802.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#buttonLogInClick" style="-fx-background-radius: 8; -fx-background-color: 1,2,2;" text="Вход" textFill="#35b260">
+           <font>
+               <Font name="Arial Bold" size="14.0" />
+           </font>
+       </Button>
 
-            <Button layoutX="763.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#buttonLogInClick" text="Log in">
-               <font>
-                  <Font name="Arial Bold" size="12.0" />
-               </font></Button>
+      <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="754.0" layoutY="20.0" onMouseClicked="#basketClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@basket.png" />
+         </image>
+      </ImageView>
 
-            <MediaView layoutX="10.0" layoutY="60.0" fitHeight="200.0" fitWidth="200.0" />
+      <Label layoutX="619.0" layoutY="31.0" onMouseClicked="#ConctactsClick" text="Контакты">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
 
-         </children>
-      </Pane>
+      <Label layoutX="554.0" layoutY="31.0" text="Акции">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+
+      <ImageView fitHeight="49.0" fitWidth="188.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="29.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizza/pic/Ветчина%20и%20грибы.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="220.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizza/pic/Итальянская.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="220.0" layoutY="301.0" prefHeight="69.0" prefWidth="168.0" text="Пикантная пепперони, &#10;томатный соус, шампиньоны, &#10;моцарелла, маслины&#10; и орегано." />
+      <Label layoutX="128.0" layoutY="398.0" text="400 руб">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="26.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 14;" text="в корзину" textFill="#35b260">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="26.0" layoutY="280.0" text="Ветчина и грибы">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="220.0" layoutY="280.0" text="Итальянская">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="214.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 14;" text="в корзину" textFill="#35b260">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="326.0" layoutY="398.0" text="495 руб">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="416.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizza/pic/Маргарита.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="604.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizza/pic/Мексиканская.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="416.0" layoutY="280.0" text="Маргарита">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="604.0" layoutY="280.0" text="Мексиканская">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="798.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizza/pic/Морская.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="798.0" layoutY="280.0" text="Морская">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="416.0" layoutY="301.0" prefHeight="38.0" prefWidth="168.0" text="Томатный соус, моцарелла,&#10;томаты и орегано." />
+      <Label layoutX="601.0" layoutY="298.0" prefHeight="75.0" prefWidth="168.0" text="Цыпленок, томатный соус, &#10;сладкий перец, лук красный, &#10;моцарелла, острый перец &#10;халапеньо и соус сальса." />
+      <Label layoutX="798.0" layoutY="301.0" prefHeight="69.0" prefWidth="168.0" text="Томатный соус, сладкий &#10;перец, лук красный, &#10;моцарелла, маслины &#10;и креветки." />
+      <Button layoutX="416.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 14;" text="в корзину" textFill="#35b260">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="601.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 14;" text="в корзину" textFill="#35b260">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="802.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 14;" text="в корзину" textFill="#35b260">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="524.0" layoutY="398.0" text="395 руб">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="703.0" layoutY="398.0" text="495 руб">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="912.0" layoutY="398.0" text="595 руб">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
    </children>
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-</GridPane>
+</Pane>
