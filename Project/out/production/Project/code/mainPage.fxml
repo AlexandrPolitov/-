@@ -35,13 +35,13 @@
          </font>
       </Label>
 
-      <Label layoutX="554.0" layoutY="31.0" text="Акции">
+      <Label layoutX="554.0" layoutY="31.0" onMouseClicked="#AkciiClick" text="Акции">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
 
-      <ImageView fitHeight="49.0" fitWidth="188.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="188.0" layoutX="26.0" layoutY="15.0" onMouseClicked="#MouseClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>

@@ -68,4 +68,17 @@ public class mainPage {
         alert.setHeaderText("В процессе разработки)))");
         alert.showAndWait();
     }
+
+    public void MouseClick(MouseEvent mouseEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Это наша Команда))");
+        alert.setHeaderText("Верба Дмитрий\nКочетков Дмитрий\nТравин Михаил\nСотникова Анна\nМатвеев Артём\nБедриков Артём\nПолитов Александр");
+        alert.showAndWait();
+    }
+
+    public void AkciiClick(MouseEvent mouseEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("В процессе разработки)))");
+        alert.showAndWait();
+    }
 }
