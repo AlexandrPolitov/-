@@ -2,10 +2,12 @@ package code;
 
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -17,6 +19,11 @@ import javafx.stage.WindowEvent;
 public class mainPage {
 
     public Label User;
+    protected boolean check = false;
+    @FXML
+    public Button btnLog;
+    @FXML
+    public Button btnReg;
 
     public void buttonLogInClick(MouseEvent mouseEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
@@ -34,7 +41,6 @@ public class mainPage {
 
         dialogStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent we) {
-
                 System.out.println("Stage is closing");
             }
         });
@@ -51,13 +57,18 @@ public class mainPage {
         dialogStage.showAndWait();
     }
 
-    public void basketClicked(MouseEvent mouseEvent) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("В процессе разработки)))");
-        alert.showAndWait();
+    public void basketClicked(MouseEvent mouseEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("basket.fxml"));
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.setScene(new Scene(root, 778,658 ));
+        dialogStage.setResizable(false);
+        dialogStage.showAndWait();
     }
 
-    public void ConctactsClick(MouseEvent mouseEvent) {
+    public void ContactsClick(MouseEvent mouseEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("В процессе разработки)))");
         alert.showAndWait();
