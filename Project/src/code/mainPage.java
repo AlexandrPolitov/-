@@ -1,7 +1,5 @@
 package code;
 
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,41 +7,74 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 
 public class mainPage {
 
-    public Label User;
-    protected boolean check = false;
+    public enum user{
+        NULL,
+        USER,
+        ORGANIZATION,
+        PIZZA_MAKER,
+    }
+
     @FXML
     public Button btnLog;
     @FXML
     public Button btnReg;
+    @FXML
+    public ImageView basket;
+    @FXML
+    public ImageView addPizza;
+    @FXML
+    public ImageView logoPizzaMaker;
+    @FXML
+    public Label userName;
 
+    public user type_user = user.NULL;
+
+    private void changeInterface (user User) {
+        switch (User) {
+            case NULL:
+                break;
+
+            case USER:
+                btnLog.setVisible(false);
+                btnReg.setVisible(false);
+                userName.setVisible(true);
+                break;
+
+            case PIZZA_MAKER:
+                btnLog.setVisible(false);
+                btnReg.setVisible(false);
+                basket.setVisible(false);
+                addPizza.setVisible(true);
+                logoPizzaMaker.setVisible(true);
+                break;
+
+            case ORGANIZATION:
+                btnLog.setVisible(false);
+                btnReg.setVisible(false);
+                logoPizzaMaker.setVisible(true);
+                break;
+        }
+    }
+
+    // Окно входа
     public void buttonLogInClick(MouseEvent mouseEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("LogIn.fxml"));
-//        -fx-background-radius: 6;
-//        -fx-background-color: rgb(200, 200, 200), rgb(200, 200, 200);
-//        -fx-background-insets: 0, 0 1 1 0;
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("");
         dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.setScene(new Scene(root, 160, 140));
-        //dialogStage.initStyle(StageStyle.TRANSPARENT);
+        dialogStage.setScene(new Scene(root));
         dialogStage.setResizable(false);
         dialogStage.showAndWait();
 
-        dialogStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent we) {
-                System.out.println("Stage is closing");
-            }
-        });
+        type_user = LogIn.type_user;
+        changeInterface(type_user);
     }
 
     public void buttonSignUpClick(MouseEvent mouseEvent) throws Exception {
@@ -52,32 +83,34 @@ public class mainPage {
         Stage dialogStage = new Stage();
         dialogStage.setTitle("");
         dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.setScene(new Scene(root, 160, 220));
+        dialogStage.setScene(new Scene(root));
         dialogStage.setResizable(false);
         dialogStage.showAndWait();
+
+        type_user = signUp.type_user;
+        changeInterface(type_user);
     }
 
     public void basketClicked(MouseEvent mouseEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("basket.fxml"));
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("");
+        dialogStage.setTitle("Корзина");
         dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.setScene(new Scene(root, 778,658 ));
+        dialogStage.setScene(new Scene(root));
         dialogStage.setResizable(false);
         dialogStage.showAndWait();
     }
 
-    public void ContactsClick(MouseEvent mouseEvent) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("В процессе разработки)))");
-        alert.showAndWait();
-    }
-
-    public void AddClick(MouseEvent mouseEvent) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("В процессе разработки)))");
-        alert.showAndWait();
+    public void personalAreaClick (MouseEvent mouseEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("personalArea.fxml"));
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Личный кабинет");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.setScene(new Scene(root));
+        dialogStage.setResizable(false);
+        dialogStage.showAndWait();
     }
 
     public void MouseClick(MouseEvent mouseEvent) {
@@ -87,9 +120,39 @@ public class mainPage {
         alert.showAndWait();
     }
 
-    public void AkciiClick(MouseEvent mouseEvent) {
+    public void ContactsClick(MouseEvent mouseEvent) {
+
+        /////////////////////////
+        btnLog.setVisible(true);
+        btnReg.setVisible(true);
+        basket.setVisible(true);
+        userName.setVisible(false);
+        addPizza.setVisible(false);
+        logoPizzaMaker.setVisible(false);
+        /////////////////////////
+
+    }
+
+    public void AddClick(MouseEvent mouseEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("В процессе разработки)))");
         alert.showAndWait();
+    }
+
+    public void PromotionsClick(MouseEvent mouseEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("В процессе разработки)))");
+        alert.showAndWait();
+    }
+
+    public void AddPizzaClick(MouseEvent mouseEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("addPizza.fxml"));
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.setScene(new Scene(root));
+        dialogStage.setResizable(false);
+        dialogStage.showAndWait();
     }
 }

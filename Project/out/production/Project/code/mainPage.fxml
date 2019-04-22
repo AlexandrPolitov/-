@@ -23,7 +23,7 @@
                      <Font name="Arial Bold" size="14.0" />
                  </font>
              </Button>
-            <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="821.0" layoutY="13.0" onMouseClicked="#basketClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="basket" fitHeight="38.0" fitWidth="43.0" layoutX="821.0" layoutY="13.0" onMouseClicked="#basketClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@basket.png" />
                </image>
@@ -38,11 +38,24 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="680.0" layoutY="24.0" onMouseClicked="#AkciiClick" text="Акции">
+            <Label layoutX="680.0" layoutY="24.0" onMouseClicked="#PromotionsClick" text="Акции">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
+            <Label fx:id="userName" layoutX="880.0" layoutY="25.0" text="Политов Александр" onMouseClicked="#personalAreaClick" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="addPizza" fitHeight="40.0" fitWidth="100.0" layoutX="817.0" layoutY="12.0" onMouseClicked="#AddPizzaClick" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@sell_pizza.png" />
+               </image></ImageView>
+            <ImageView fx:id="logoPizzaMaker" fitHeight="55.0" fitWidth="130.0" layoutX="900.0" layoutY="5.0" onMouseClicked="#personalAreaClick" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@pj.jpg" />
+               </image></ImageView>
          </children>
       </Pane>
       <Pane layoutX="22.0" layoutY="83.0" prefHeight="369.0" prefWidth="891.0" style="-fx-background-color: rgb(255, 255, 255);">
@@ -79,12 +92,12 @@
                </font>
             </Label>
             <Label layoutX="188.0" layoutY="190.0" prefHeight="38.0" prefWidth="168.0" text="Томатный соус, моцарелла,&#10;томаты и орегано." />
-            <Button layoutX="188.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0"  style="-fx-background-radius: 16; -fx-background-color: rgb(1, 147, 111);" text="в корзину" textFill="#ffffff">
+            <Button layoutX="188.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 16; -fx-background-color: rgb(1, 147, 111);" text="в корзину" textFill="#ffffff">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Button>
-            <Label layoutX="296.0" layoutY="287.0" text="395 руб">
+            <Label layoutX="287.0" layoutY="289.0" text="395 руб">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -100,7 +113,7 @@
                </font>
             </Label>
             <Label layoutX="356.0" layoutY="189.0" prefHeight="75.0" prefWidth="168.0" text="Цыпленок, томатный соус, &#10;сладкий перец, лук красный, &#10;моцарелла, острый перец &#10;халапеньо и соус сальса." />
-            <Button layoutX="356.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0"  style="-fx-background-radius: 16; -fx-background-color: rgb(1, 147, 111);" text="в корзину" textFill="#ffffff">
+            <Button layoutX="356.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 16; -fx-background-color: rgb(1, 147, 111);" text="в корзину" textFill="#ffffff">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
