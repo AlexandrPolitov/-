@@ -116,7 +116,7 @@ public class mainPage {
     public void MouseClick(MouseEvent mouseEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Это наша Команда))");
-        alert.setHeaderText("Вееерба Дмитрий\nКочетков Дмитрий\nТравин Михаил\nСотникова Анна\nМатвеев Артём\nБедриков Артём\nПолитов Александр");
+        alert.setHeaderText("Вееееерба Дмитрий\nКочетков Дмитрий\nТравин Михаил\nСотникова Анна\nМатвеев Артём\nБедриков Артём\nПолитов Александр");
         alert.showAndWait();
     }
 
