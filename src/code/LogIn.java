@@ -28,6 +28,7 @@ public class LogIn extends mainPage{
 
     // Событие нажатия на кнопку Cancel
     public void buttonCancelClick(MouseEvent mouseEvent) {
+        type_user = user.NULL;
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
