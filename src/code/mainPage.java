@@ -1,5 +1,7 @@
 package code;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +18,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import java.util.ArrayList;
 
 public class mainPage {
 
@@ -43,15 +46,27 @@ public class mainPage {
 
     public user type_user = user.NULL;
 
+    public ArrayList<String> listNames = new ArrayList<>();
+    public String allPrice = "0";
+
     private void changeInterface (user User) {
         switch (User) {
             case NULL:
+                btnLog.setVisible(true);
+                btnReg.setVisible(true);
+                basket.setVisible(true);
+                userName.setVisible(false);
+                addPizza.setVisible(false);
+                logoPizzaMaker.setVisible(false);
                 break;
 
             case USER:
                 btnLog.setVisible(false);
                 btnReg.setVisible(false);
+                basket.setVisible(true);
                 userName.setVisible(true);
+                addPizza.setVisible(false);
+                logoPizzaMaker.setVisible(false);
                 break;
 
             case PIZZA_MAKER:
@@ -59,13 +74,17 @@ public class mainPage {
                 btnReg.setVisible(false);
                 basket.setVisible(false);
                 addPizza.setVisible(true);
+                userName.setVisible(false);
                 logoPizzaMaker.setVisible(true);
                 break;
 
             case ORGANIZATION:
                 btnLog.setVisible(false);
                 btnReg.setVisible(false);
+                basket.setVisible(true);
                 logoPizzaMaker.setVisible(true);
+                addPizza.setVisible(false);
+                logoPizzaMaker.setVisible(false);
                 break;
         }
     }
@@ -84,6 +103,7 @@ public class mainPage {
         changeInterface(type_user);
     }
 
+    // Окно регистрации
     public void buttonSignUpClick(MouseEvent mouseEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("signUp.fxml"));
@@ -98,17 +118,18 @@ public class mainPage {
         changeInterface(type_user);
     }
 
+    // Окно корзины
     public void basketClicked(MouseEvent mouseEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("basket.fxml"));
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Корзина");
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.setScene(new Scene(root));
         dialogStage.setResizable(false);
         dialogStage.show();
     }
 
+    // Окно личного кабинета
     public void personalAreaClick (MouseEvent mouseEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("personalArea.fxml"));
@@ -119,6 +140,7 @@ public class mainPage {
         dialogStage.showAndWait();
     }
 
+    // Нажатие на лого
     public void MouseClick(MouseEvent mouseEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Это наша Команда))");
@@ -126,34 +148,28 @@ public class mainPage {
         alert.showAndWait();
     }
 
+    // Контакты
     public void ContactsClick(MouseEvent mouseEvent) {
-
-        /////////////////////////
-        btnLog.setVisible(true);
-        btnReg.setVisible(true);
-        basket.setVisible(true);
-        userName.setVisible(false);
-        addPizza.setVisible(false);
-        logoPizzaMaker.setVisible(false);
         type_user = user.NULL;
-        /////////////////////////
+        changeInterface(type_user);
     }
 
-    public void AddClick(MouseEvent mouseEvent) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("В процессе разработки)))");
+    // Акции
+    public void PromotionsClick(MouseEvent mouseEvent) {
+        String name = "";
+        for (String str : listNames) {
+            name += str + " | ";
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Название: " + name + "\nЦена: " + allPrice + "руб");
         alert.showAndWait();
     }
 
-    public void PromotionsClick(MouseEvent mouseEvent) {
-//        Basket.setPrice(1000);
-    }
-
     // Супер-пупер метод реализующий добавление пицц
-    public void pizzaCreate(Image image, String name, String price, String description ) {
+    public void pizzaCreate(String image, String name, String price, String description ) {
         Pane item = new Pane();
 
-        ImageView imageView = new ImageView(image);
+        ImageView imageView = new ImageView(new Image(image));
         imageView.setFitHeight(200.0);
         imageView.setFitWidth(200.0);
         imageView.setLayoutX(10.0);
@@ -174,7 +190,6 @@ public class mainPage {
         lprice.setTextFill(Paint.valueOf("#6c4e49"));
         item.getChildren().add(lprice);
 
-
         Label ldescription = new Label(description);
         ldescription.setLayoutX(20.0);
         ldescription.setLayoutY(230.0);
@@ -190,6 +205,19 @@ public class mainPage {
         btn.setPrefWidth(90.0);
         btn.setLayoutX(20.0);
         btn.setLayoutY(310.0);
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                int temp = Integer.valueOf(allPrice);
+                allPrice = String.valueOf(Integer.valueOf(price)+temp);
+                listNames.add(name);
+
+                // Тестовый Alert, срабатывает при выборе пиццы
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Название: " + name + "\nЦена: " + price + "руб");
+                alert.showAndWait();
+            }
+        });
         item.getChildren().add(btn);
 
         list.getChildren().add(item);
@@ -205,6 +233,10 @@ public class mainPage {
         dialogStage.setResizable(false);
         dialogStage.showAndWait();
 
-        pizzaCreate(AddPizza.image, AddPizza.name, AddPizza.price, AddPizza.description);
+        if (AddPizza.check) {
+            pizzaCreate(AddPizza.image, AddPizza.name, AddPizza.price, AddPizza.description);
+            AddPizza.image = "";
+            AddPizza.check = false;
+        }
     }
 }

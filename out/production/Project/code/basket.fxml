@@ -9,7 +9,7 @@
 
 <Pane prefHeight="686.0" prefWidth="778.0" style="-fx-background-color: rgb(245, 245, 245);" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Basket">
    <children>
-      <Pane layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="571.0" style="-fx-background-color: rgb(255, 255, 255);">
+      <Pane fx:id="pane" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="571.0" style="-fx-background-color: rgb(255, 255, 255);">
          <children>
             <Label layoutX="25.0" layoutY="18.0" prefHeight="24.0" prefWidth="83.0" text="Корзина" textFill="#6c4e49">
                <font>
